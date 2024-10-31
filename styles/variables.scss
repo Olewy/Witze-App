@@ -1,6 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Scribble&display=swap");
+
 $primary-color: #06da4b;
-
+$danger-color: #f20f2f;
 $primary-bg-color: #333333;
-$secondary-bg-color: #444444;
-
+$elevation-bg-color: #444444;
 $primary-text-color: #fff;
+$font-display: "Rubik Scribble", cursive;
+
+@mixin tablet-and-up() {
+  @media only screen and (min-width: 600px) {
+    @content;
+  }
+}

@@ -1,6 +1,4 @@
 @use "variables" as *;
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Scribble&display=swap");
 
 * {
   margin: 0;
@@ -14,18 +12,24 @@ body {
 }
 
 #app {
+  max-width: 800px;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 3rem;
-  padding: 1rem;
+  padding: 0 1rem;
+  text-align: center;
+
+  @include tablet-and-up() {
+    margin-top: 4rem;
+    padding: 0;
+  }
 }
 
 .heading {
-  margin-top: 2rem;
-  font-family: "Rubik Scribble";
-  font-size: 3.75rem;
+  font-family: $font-display;
+  font-size: 60px;
   color: $primary-color;
 }
 
@@ -34,9 +38,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $secondary-bg-color;
+  background-color: $elevation-bg-color;
   padding: 2rem;
   gap: 3rem;
+
+  @include tablet-and-up() {
+    width: 100;
+  }
 
   &__text {
     color: #fff;
@@ -47,17 +55,22 @@ body {
   &__actions {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
-    width: 100%;
+
+    @include tablet-and-up() {
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 
   &__generate {
     padding: 1rem 1.5rem;
     font-size: 1rem;
     background-color: $primary-color;
-    border: none;
+    border: 1px solid $primary-color;
     border-radius: 5px;
-    width: 100%;
+    transition: 0.2s all ease-in-out;
 
     &:hover {
       background-color: darken($primary-color, 5);
@@ -72,11 +85,11 @@ body {
     border: 1px solid $primary-color;
     color: $primary-color;
     border-radius: 5px;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    transition: 0.2s all ease-in-out;
 
     &:hover {
       background-color: $primary-color;
@@ -90,74 +103,63 @@ body {
   }
 }
 
-.saved-jokes__list {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-
 .saved-jokes {
   padding: 1rem;
 
-  .saved-jokes__heading {
-    font-family: "Rubik Scribble";
-    color: #fff;
+  @include tablet-and-up() {
+    margin-top: 5rem;
+  }
+
+  &__heading {
+    font-family: $font-display;
     font-size: 2rem;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1.5rem;
   }
 }
 
 .saved-joke {
-  background-color: $secondary-bg-color;
-  color: #fff;
+  background-color: $elevation-bg-color;
   font-size: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: none;
   gap: 1rem;
   margin-top: 1rem;
   padding: 1.5rem;
+
+  @include tablet-and-up() {
+    padding: 1.5rem;
+  }
 
   &__text {
     line-height: 1.4rem;
   }
 
   &__remove {
-    border-radius: 3px;
-    background-color: #ff0000;
-    padding: 0.5rem;
     border: none;
+    border-radius: 3px;
+    background-color: $danger-color;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
+    transition: 0.2s all ease-in-out;
 
     &:hover {
-      background-color: darken(#ff0000, 5);
+      background-color: darken($danger-color, 5);
       cursor: pointer;
     }
   }
 
   &__remove-icon {
-    color: #fff;
     width: 1.5rem;
-  }
-}
-
-// === MEDIA QUERY ===
-
-@media only screen and (min-width: 600px) {
-  #app {
-    padding: 0;
-  }
-  .current-joke__actions {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .current-joke__generate,
-  .current-joke__save {
-    width: fit-content;
   }
 }
