@@ -2,8 +2,6 @@ import { fetchJoke } from "./fetching";
 import { getSavedJokes, removeJoke, saveJoke } from "./storing";
 import "./styles/main.scss";
 
-console.log(await fetchJoke());
-
 const LOCAL_STORAGE_KEY = "saved-jokes";
 
 const currentJokeEl = document.querySelector(".current-joke__text");
