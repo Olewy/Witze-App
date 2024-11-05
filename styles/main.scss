@@ -43,7 +43,7 @@ body {
   gap: 3rem;
 
   @include tablet-and-up() {
-    width: 100;
+    width: 100%;
   }
 
   &__text {
@@ -57,6 +57,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    width: 100%;
 
     @include tablet-and-up() {
       flex-direction: row;
@@ -95,6 +96,10 @@ body {
       background-color: $primary-color;
       color: #000;
       cursor: pointer;
+    }
+
+    &--disabled {
+      display: none;
     }
   }
 
